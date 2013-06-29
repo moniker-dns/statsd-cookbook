@@ -27,7 +27,7 @@ default[:statsd][:mgmt_port] = 8126
 default[:statsd][:backends] = ["graphite"]
 default[:statsd][:flushInterval] = 10000
 default[:statsd][:deleteIdleStats] = false
-default[:statsd][:prefixStats] = "statsd"
+default[:statsd][:prefixStats] = "statsd.#{node[:hostname]}"
 
 default[:statsd][:graphite][:legacyNamespace] = false
 default[:statsd][:graphite][:globalPrefix] = "stats"
