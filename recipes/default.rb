@@ -14,9 +14,12 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 #
-graphite_hosts = search_helper_best_ip(node[:statsd][:graphite_search], node[:statsd][:graphite_hosts]) do |ip, other_node|
+# Find the Graphite Servers via search, or use the configured servers
+graphite_hosts = search_helper_best_ip(node[:statsd][:graphite_search], node[:statsd][:graphite_hosts], false) do |ip, other_node|
   {host: ip, port: other_node['graphite']['carbon']['line_receiver_port']}
 end
+
+return if graphite_hosts.empty? || graphite_hosts.nil?
 
 # Install the StatsD package
 package "statsd" do
