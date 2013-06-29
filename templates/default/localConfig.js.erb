@@ -1,19 +1,19 @@
 {
-  address: "<%= node[:statsd][:address] %>"
-, port: <%= node[:statsd][:port] %>
-, mgmt_address: "<%= node[:statsd][:mgmt_address] %>"
-, mgmt_port: <%= node[:statsd][:mgmt_port] %>
-, graphitePort: <%= @graphite[:port] %>
-, graphiteHost: "<%= @graphite[:host] %>"
-, backends: ["<%= node[:statsd][:backends].join('", "') %>"]
-, flushInterval: <%= node[:statsd][:flushInterval] %>
-, deleteIdleStats: <%= node[:statsd][:deleteIdleStats].downcase %>
+  "address": "<%= node[:statsd][:address] %>"
+, "port": <%= node[:statsd][:port] %>
+, "mgmt_address": "<%= node[:statsd][:mgmt_address] %>"
+, "mgmt_port": <%= node[:statsd][:mgmt_port] %>
+, "graphitePort": <%= @graphite[:port] %>
+, "graphiteHost": "<%= @graphite[:host] %>"
+, "backends": ["/usr/share/statsd/backends/<%= node[:statsd][:backends].join('", "/usr/share/statsd/backends/') %>"]
+, "flushInterval": <%= node[:statsd][:flushInterval] %>
+, "deleteIdleStats": <%= node[:statsd][:deleteIdleStats].to_s.downcase %>
 , prefixStats: "<%= node[:statsd][:prefixStats] %>"
 , graphite: {
-    legacyNamespace: <%= node[:statsd][:graphite][:legacyNamespace].downcase %>
-  , globalPrefix: : "<%= node[:statsd][:graphite][:globalPrefix] %>"
-  , prefixCounter: : "<%= node[:statsd][:graphite][:prefixCounter] %>"
-  , prefixTimer: : "<%= node[:statsd][:graphite][:prefixTimer] %>"
-  , prefixGauge: : "<%= node[:statsd][:graphite][:prefixGauge] %>"
-  , prefixSet: : "<%= node[:statsd][:graphite][:prefixSet] %>"}
+    legacyNamespace: <%= node[:statsd][:graphite][:legacyNamespace].to_s.downcase %>
+  , globalPrefix: "<%= node[:statsd][:graphite][:globalPrefix] %>"
+  , prefixCounter: "<%= node[:statsd][:graphite][:prefixCounter] %>"
+  , prefixTimer: "<%= node[:statsd][:graphite][:prefixTimer] %>"
+  , prefixGauge: "<%= node[:statsd][:graphite][:prefixGauge] %>"
+  , prefixSet: "<%= node[:statsd][:graphite][:prefixSet] %>"}
 }
