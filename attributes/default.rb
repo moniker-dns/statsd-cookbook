@@ -35,3 +35,6 @@ default[:statsd][:graphite][:prefixCounter] = "counters"
 default[:statsd][:graphite][:prefixTimer] = "timers"
 default[:statsd][:graphite][:prefixGauge] = "gauges"
 default[:statsd][:graphite][:prefixSet] = "sets"
+
+default[:statsd][:repeater][:host] = '127.0.0.1'
+default[:statsd][:repeater][:port] = 8125

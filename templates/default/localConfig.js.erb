@@ -16,4 +16,5 @@
   , prefixTimer: "<%= node[:statsd][:graphite][:prefixTimer] %>"
   , prefixGauge: "<%= node[:statsd][:graphite][:prefixGauge] %>"
   , prefixSet: "<%= node[:statsd][:graphite][:prefixSet] %>"}
+, repeater: [{host: "<%= node[:statsd][:repeater][:host] %>", port: <%= node[:statsd][:repeater][:port] %>}]
 }
